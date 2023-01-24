@@ -11,6 +11,17 @@
 
 <div class="container mt-3">
   <h2>EIDIT AND DELETE FORM</h2>
+  @if (count($errors) > 0)
+  <div class = "alert alert-danger">
+     <ul>
+        @foreach ($errors->all() as $error)
+           <li>{{ $error }}</li>
+        @endforeach
+     </ul>
+  </div>
+@endif
+
+
    <form action="{{route('create.update',$data->id)}}" method="post">
     @csrf
     <div class="mb-3 mt-3">
@@ -39,6 +50,16 @@
         <textarea type="text" class="form-control" id="address" placeholder="Enter address" name="address" value = "{{ $data->address }}">{{ $data->address }}</textarea>
 
     <button type="submit" class="btn btn-primary">update</button>
+    <div class="form-group">
+        <label for="cars">Choose a category:</label>
+
+        <select  id="cars" name="category_id">
+            @foreach($categories as $cat)
+            <option value="{{$cat->id}}">{{$cat->name}}</option>
+            @endforeach
+        </select>
+    </div>
+
   </form>
 </div>
 

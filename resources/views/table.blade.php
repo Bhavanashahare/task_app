@@ -35,6 +35,7 @@
         <th>Email</th>
         <th>Password</th>
         <th>Phone</th>
+        
         <th>Address</th>
     <th>Action</th>
 
